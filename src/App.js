@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { inceraseNum,deceraseNum } from './action/indax';
+import{useDispatch,useSelector} from  'react-redux';
 
 function App() {
+  const dispatch=useDispatch();
+  const val = useSelector((state)=>state.UpDown)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {val}
+
+      <br></br>
+      <input type="button" value="increment" onClick={()=>{dispatch(inceraseNum())}}></input>
+      <input type="button" value="Decrement" onClick={()=>{dispatch(deceraseNum())}}></input>
+      <br></br>
+
+
+
+
+
     </div>
   );
 }
